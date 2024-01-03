@@ -70,6 +70,9 @@ router.get("/getAllCourses", getAllCourses)
 // Get Details for a Specific Courses
 router.post("/getCourseDetails", getCourseDetails)
 
+// Edit Course routes
+router.post("/editCourse", auth, isInstructor, editCourse)
+
 // ********************************************************************************************************
 //                                      Category routes (Only by Admin)
 // ********************************************************************************************************
@@ -78,8 +81,7 @@ router.post("/getCourseDetails", getCourseDetails)
 router.post("/createCategory", auth, isAdmin, createCategory)   
 router.get("/showAllCategories", showAllCategory)
 router.post("/getCategoryPageDetails", categoryPageDetails)
-// Edit Course routes
-router.post("/editCourse", auth, isInstructor, editCourse)
+
 
 // ********************************************************************************************************
 //                                      Rating and Review

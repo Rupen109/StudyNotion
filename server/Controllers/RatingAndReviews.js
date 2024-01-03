@@ -1,5 +1,5 @@
-const RatingAndReview = require("../Models/RatingAndReview");
-const Course = require("../Models/Course");
+const RatingAndReview = require("../models/RatingAndReview");
+const Course = require("./Course");
 const { mongo, default: mongoose } = require("mongoose");
 
 //createRating
@@ -145,5 +145,3 @@ exports.getAllRating = async (req, res) => {
         })
     }
 }
-
-//hw : course id corresponding get all rating and reviews 
