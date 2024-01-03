@@ -7,9 +7,9 @@ exports.updateProfile = async (req, res) => {
     try {
         //get data
         const { dateOfBirth = "", about = "", contactNumber, gender } = req.body;
-        const id = req.user.id;    
+        const id = req.user.id;     
+        console.log("id issss" + id);
         //get userId
-        console.log("id is" + id);
 
         // validation
         // if (!contactNumber || !gender || !id) {         //this loop is  not contain in babar's code
@@ -92,7 +92,7 @@ exports.getAllUserDetails = async (req, res) => {
     try {
         //get id
         const id = req.user.id;
-
+        console.log("getAllUserDetails id is" + id);
         //validation and get user details
         const userDetails = await User.findById(id).populate("additionalDetails").exec();
         //return response

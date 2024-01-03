@@ -74,7 +74,7 @@ router.post("/getCourseDetails", getCourseDetails)
 // ********************************************************************************************************
 // Category can Only be Created by Admin
 // TODO: Put IsAdmin Middleware here
-router.post("/createCategory", auth, isAdmin, createCategory)
+router.post("/createCategory", auth, isAdmin, createCategory)   
 router.get("/showAllCategories", showAllCategory)
 router.post("/getCategoryPageDetails", categoryPageDetails)
 
@@ -83,7 +83,7 @@ router.post("/getCategoryPageDetails", categoryPageDetails)
 // ********************************************************************************************************
 router.post("/createRating", auth, isStudent, createRating)
 router.get("/getAverageRating", getAverageRating)
-router.get("/getReviews", getAllRating)
+router.get("/getReviews", getAllRating)  
 
 
 module.exports = router;

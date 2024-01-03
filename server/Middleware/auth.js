@@ -6,13 +6,19 @@ require("dotenv").config();
 exports.auth = async (req, res, next) => {
     try {
 
-        console.log("BEFORE ToKEN EXTRACTION");
-        //extract token
+        // console.log("cookie", req.cookies.token);
+        // console.log("body", req.body.token);
+        // console.log("header", req.header("Authorization"));
+        
         const token = req.cookies.token
             || req.body.token
             || req.header("Authorisation").replace("Bearer ", "");
-        console.log("AFTER ToKEN EXTRACTION");
+        // const token = req.cookies.token || req.body.token || req.header("Authorisation").replace("Bearer ", "");
 
+
+        
+        
+        console.log("AFTER ToKEN EXTRACTION", token);
         //if token missing, then return response
         if (!token) {
             return res.status(401).json({
@@ -43,6 +49,43 @@ exports.auth = async (req, res, next) => {
         });
     }
 }
+
+// exports.auth = (req, res, next) => {
+//     try {
+//         // Extract JWT token from cookie
+//         console.log("cookies lovess", req.cookies.yourlove);
+
+//         const token = req.cookies.yourlove;
+
+//         if (!token) {
+//             return res.status(401).json({
+//                 success: false,
+//                 message: 'Token Missing in Cookies',
+//             });
+//         }
+
+//         // Verify the token
+//         try {
+//             const payload = jwt.verify(token, process.env.JWT_SECRET);
+//             console.log(payload);
+//             req.user = payload;
+//             next();
+//         } catch (error) {
+//             return res.status(401).json({
+//                 success: false,
+//                 message: 'Token is invalid',
+//             });
+//         }
+//     } catch (error) {
+//         console.log(error);
+//         return res.status(401).json({
+//             success: false,
+//             message: 'Something went wrong while verifying the token',
+//             error: error.message,
+//         });
+//     }
+// };
+
 
 //isStudent
 exports.isStudent = async (req, res, next) => {

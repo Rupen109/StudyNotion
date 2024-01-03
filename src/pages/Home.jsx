@@ -102,7 +102,7 @@ const Home = () => {
                         codeColor={"text-yellow-25"}
                     />
                 </div>
-                <ExploreMore />
+                <ExploreMore  />
             </div>
             {/* Section : 2 */}
             <div className="bg-pure-greys-5 text-richblack-700">

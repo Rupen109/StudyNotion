@@ -18,11 +18,10 @@ const authSlice = createSlice({
         },
         setToken(state, value) {
             state.token = value.payload;
-            console.log("payloaddd" ,value.payload);
+            console.log("payloaddd", value.payload);
         },
     },
 });
 
-export const { setSignupData,setLoading,setToken } = authSlice.actions;
+export const { setSignupData, setLoading, setToken } = authSlice.actions;
 export default authSlice.reducer;
-
