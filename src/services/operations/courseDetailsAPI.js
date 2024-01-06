@@ -271,7 +271,7 @@ export const fetchInstructorCourses = async (token) => {
             GET_ALL_INSTRUCTOR_COURSES_API,
             null,
             {
-                Authorization: `Bearer ${token}`,
+                Authorisation: `Bearer ${token}`,
             }
         )
         console.log("INSTRUCTOR COURSES API RESPONSE............", response)

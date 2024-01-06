@@ -22,7 +22,7 @@ export default function PublishCourse() {
             setValue("public", true);
         }
     }, []);
-
+    
     const goBack = () => {
         dispatch(setStep(2));
     };
@@ -51,6 +51,7 @@ export default function PublishCourse() {
         }
         setLoading(false);
     };
+    
 
     const onSubmit = (data) => {
         // console.log(data)

@@ -38,6 +38,7 @@ export default function CourseInformationForm() {
                 setCourseCategories(categories);
             }
             setLoading(false);
+            console.log("editsss", editCourse);
         };
         // if form is in edit mode
         if (editCourse) {
@@ -182,10 +183,17 @@ export default function CourseInformationForm() {
                 <label className="text-sm text-richblack-5" htmlFor="courseCategory">
                     Course Category <sup className="text-pink-200">*</sup>
                 </label>
-                <select {...register("courseCategory", { required: true })} defaultValue="" id="courseCategory" className="form-style w-full">
+                <select
+                    {...register("courseCategory",
+                    { required: true })}
+                    defaultValue=""
+                    id="courseCategory"
+                    className="form-style w-full">
+                    
                     <option value="" disabled>
                         Choose a Category
                     </option>
+
                     {!loading &&
                         courseCategories?.map((category, indx) => (
                             <option key={indx} value={category?._id}>
@@ -195,10 +203,25 @@ export default function CourseInformationForm() {
                 </select>
                 {errors.courseCategory && <span className="ml-2 text-xs tracking-wide text-pink-200">Course Category is required</span>}
             </div>
+           
             {/* Course Tags */}
-            <ChipInput label="Tags" name="courseTags" placeholder="Enter Tags and press Enter" register={register} errors={errors} setValue={setValue} getValues={getValues} />
+            <ChipInput 
+            label="Tags" 
+            name="courseTags" 
+            placeholder="Enter Tags and press Enter" 
+                register={register}
+                errors={errors}
+                setValue={setValue}
+                getValues={getValues} />
+           
             {/* Course Thumbnail Image */}
-            <Upload name="courseImage" label="Course Thumbnail" register={register} setValue={setValue} errors={errors} editData={editCourse ? course?.thumbnail : null} />
+            <Upload
+                name="courseImage"
+                label="Course Thumbnail"
+                register={register}
+                setValue={setValue}
+                errors={errors}
+                editData={editCourse ? course?.thumbnail : null} />
             {/* Benefits of the course */}
             <div className="flex flex-col space-y-2">
                 <label className="text-sm text-richblack-5" htmlFor="courseBenefits">
